@@ -159,6 +159,7 @@ const GLYPH = { green: "✓", amber: "!", red: "✕" };
 const INDOOR = [
   { name: "Chimera (Tun Wells)", url: "https://www.chimeraclimbingtunbridgewells.com/" },
   { name: "Volume 1 (E. Grinstead)", url: "https://www.volume1climbing.co.uk/" },
+  { name: "High Sports (Brighton)", url: "https://www.high-sports.co.uk/" },
   { name: "Boulder Brighton", url: "https://www.boulderbrighton.com/" },
 ];
 const indoorLinks = () =>
