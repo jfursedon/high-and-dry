@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>High &amp; Dry — Southern Sandstone conditions</title>
+    <meta name="description" content="Live wet/dry traffic-light conditions for Southern Sandstone climbing crags." />
+    <meta name="theme-color" content="#e9ece6" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <h1>High&nbsp;&amp;&nbsp;Dry</h1>
+            <p class="tag">Southern Sandstone climbing conditions</p>
+          </div>
+        </div>
+        <button id="refresh" type="button" aria-label="Refresh conditions">
+          <span class="ico" aria-hidden="true">↻</span><span class="lbl">Refresh</span>
+        </button>
+      </header>
+
+      <section id="hero" class="hero" aria-live="polite"></section>
+
+      <main id="grid" class="grid" aria-live="polite"></main>
+
+      <p id="status" class="status">Loading…</p>
+
+      <footer>
+        <div class="warn">
+          <strong>Guidance, not gospel.</strong> Southern Sandstone is soft and
+          porous — wet rock breaks, holds wear, and the damage is permanent. Always
+          feel the rock yourself, never climb damp or seeping lines, and follow the
+          <a href="http://www.southernsandstoneclimbs.co.uk/" target="_blank" rel="noopener">Sandstone Code of Practice</a>.
+          When in doubt, walk away.
+        </div>
+        <p class="src">
+          Weather from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.
+          “Drying” is how fast it's drying right now — sun, wind and dry air combined.
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

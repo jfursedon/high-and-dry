@@ -1,0 +1,13 @@
+{
+  "name": "High & Dry — Southern Sandstone conditions",
+  "short_name": "High & Dry",
+  "description": "Live wet/dry traffic-light conditions for Southern Sandstone climbing crags.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e9ece6",
+  "theme_color": "#e9ece6",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
