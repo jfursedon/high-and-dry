@@ -111,6 +111,8 @@ h1 {
 }
 .hero-body p { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.88rem; }
 .hero-body .accent { color: var(--accent); font-weight: 600; }
+.hero-indoor { font-size: 0.82rem; }
+.hero-indoor a { font-weight: 600; white-space: nowrap; }
 
 /* ---------- grid ---------- */
 .grid {

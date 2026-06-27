@@ -155,6 +155,15 @@ function errorCard(crag, msg) {
 
 const GLYPH = { green: "✓", amber: "!", red: "✕" };
 
+// Local indoor walls to suggest when it's too wet to climb outside.
+const INDOOR = [
+  { name: "Chimera (Tun Wells)", url: "https://www.chimeraclimbingtunbridgewells.com/" },
+  { name: "Volume 1 (E. Grinstead)", url: "https://www.volume1climbing.co.uk/" },
+  { name: "Boulder Brighton", url: "https://www.boulderbrighton.com/" },
+];
+const indoorLinks = () =>
+  INDOOR.map((w) => `<a href="${w.url}" target="_blank" rel="noopener">${w.name}</a>`).join(" · ");
+
 // Earliest upcoming day (today excluded) where some crag reaches `level`.
 function nextDay(rows, level) {
   let best = null;
@@ -180,7 +189,7 @@ function renderHero(rows) {
     ORDER[b.data.now.level] < ORDER[a.data.now.level] ? b : a
   );
   const level = best.data.now.level;
-  let title, sub;
+  let title, sub, extra = "";
 
   if (level === "green") {
     const n = loaded.filter((r) => r.data.now.level === "green").length;
@@ -195,6 +204,7 @@ function renderHero(rows) {
     sub = nx
       ? `Everything's saturated. Next likely window: <span class="accent">${nx.weekendName}</span> (${nx.crag}).`
       : "Everything's saturated, with no clear drying window in the next few days.";
+    extra = `<p class="hero-indoor">Climb indoors instead: ${indoorLinks()}</p>`;
   }
 
   hero.className = "hero";
@@ -203,6 +213,7 @@ function renderHero(rows) {
     <div class="hero-body">
       <h2>${title}</h2>
       <p>${sub}</p>
+      ${extra}
     </div>`;
 }
 
