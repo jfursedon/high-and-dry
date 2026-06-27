@@ -35,8 +35,15 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Cloudflare Pages (drop the folder, or `wrangler pages deploy .`) — same as Cwilt.
-No build step.
+Cloudflare Pages, no build step. Deploy the source files (not the repo root,
+which contains local-only dirs):
+
+```sh
+rm -rf dist && mkdir dist
+rsync -a --exclude dist --exclude .git --exclude .claude --exclude .wrangler \
+  --exclude 'README.md' --exclude '.*' ./ dist/
+wrangler pages deploy dist --project-name high-and-dry
+```
 
 ## Tuning
 
