@@ -38,8 +38,14 @@
       <p id="status" class="status">Loading…</p>
 
       <section class="mapsec" aria-label="Area rain map">
-        <h2 class="mapsec-h">Rain map &amp; forecast</h2>
-        <p class="mapsec-sub">Tap a crag card to centre the map there. Drag the timeline along the bottom to scrub the last few hours and the week ahead.</p>
+        <div class="mapsec-head">
+          <h2 class="mapsec-h">Rain map &amp; forecast</h2>
+          <div class="map-toggle" role="group" aria-label="Map display mode">
+            <button id="map-animate" type="button" aria-pressed="false">▶ Animate</button>
+            <button id="map-forecast" type="button" class="on" aria-pressed="true">Forecast</button>
+          </div>
+        </div>
+        <p class="mapsec-sub">Tap a crag card to centre the map there. Use <b>Animate</b> for the rain play button, or <b>Forecast</b> for the week-ahead meteogram.</p>
         <div class="mapframe">
           <iframe
             title="Windy rain map for the Southern Sandstone area"

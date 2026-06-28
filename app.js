@@ -172,25 +172,46 @@ const INDOOR = [
 const indoorLinks = () =>
   INDOOR.map((w) => `<a href="${w.url}" target="_blank" rel="noopener">${w.name}</a>`).join(" · ");
 
-// Re-centre the Windy embed on a crag by rebuilding its src (the basic embed
-// has no JS control, so swapping the URL is the way to move it).
+// Windy embed state. The basic embed has no JS control, so we move/retune it by
+// rebuilding its src. detail=true shows the meteogram (no play button); detail=
+// false shows the animation play button + scrubber. Can't have both — so we
+// offer a toggle and remember the choice across crag re-centres.
+let mapDetail = true; // true = forecast meteogram, false = animate/play
+let mapCenter = { lat: "51.10", lon: "0.19", name: null };
+
 function windyUrl(lat, lon) {
   const p = new URLSearchParams({
     type: "map", location: "coordinates",
     metricRain: "default", metricTemp: "default", metricWind: "default",
     zoom: "11", overlay: "rain", product: "ecmwf", level: "surface",
-    lat, lon, detailLat: lat, detailLon: lon, detail: "true", pressure: "true", message: "true",
+    lat, lon, detailLat: lat, detailLon: lon,
+    detail: String(mapDetail), pressure: "true", message: "true",
   });
   return `https://embed.windy.com/embed.html?${p}`;
 }
 
-function focusMap(crag) {
+function applyMap() {
   const frame = document.querySelector(".mapframe iframe");
-  if (!frame) return;
-  frame.src = windyUrl(crag.lat, crag.lon);
+  if (frame) frame.src = windyUrl(mapCenter.lat, mapCenter.lon);
+  for (const [id, active] of [["map-animate", !mapDetail], ["map-forecast", mapDetail]]) {
+    const b = document.getElementById(id);
+    b?.classList.toggle("on", active);
+    b?.setAttribute("aria-pressed", String(active));
+  }
+}
+
+function setMapMode(detail) {
+  if (mapDetail === detail) return;
+  mapDetail = detail;
+  applyMap();
+}
+
+function focusMap(crag) {
+  mapCenter = { lat: crag.lat, lon: crag.lon, name: crag.name };
+  applyMap();
   const sub = document.querySelector(".mapsec-sub");
   if (sub) {
-    sub.innerHTML = `Centred on <b>${crag.name}</b> — drag the timeline along the bottom to scrub the last few hours and the week ahead.`;
+    sub.innerHTML = `Centred on <b>${crag.name}</b>. Switch <b>Animate</b> for the rain play button, or <b>Forecast</b> for the week-ahead meteogram.`;
   }
   document.querySelector(".mapsec")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -294,6 +315,8 @@ async function render() {
 }
 
 document.getElementById("refresh").addEventListener("click", render);
+document.getElementById("map-animate")?.addEventListener("click", () => setMapMode(false));
+document.getElementById("map-forecast")?.addEventListener("click", () => setMapMode(true));
 render();
 
 if ("serviceWorker" in navigator) {
