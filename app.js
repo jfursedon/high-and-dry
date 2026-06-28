@@ -138,6 +138,13 @@ function card(crag, data) {
     ${outlookBlock(data.outlook)}
     <p class="crag-note">${crag.note}</p>
   `;
+  el.tabIndex = 0;
+  el.setAttribute("role", "button");
+  el.setAttribute("aria-label", `${crag.name} — centre the rain map here`);
+  el.addEventListener("click", () => focusMap(crag));
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); focusMap(crag); }
+  });
   return el;
 }
 
@@ -164,6 +171,29 @@ const INDOOR = [
 ];
 const indoorLinks = () =>
   INDOOR.map((w) => `<a href="${w.url}" target="_blank" rel="noopener">${w.name}</a>`).join(" · ");
+
+// Re-centre the Windy embed on a crag by rebuilding its src (the basic embed
+// has no JS control, so swapping the URL is the way to move it).
+function windyUrl(lat, lon) {
+  const p = new URLSearchParams({
+    type: "map", location: "coordinates",
+    metricRain: "default", metricTemp: "default", metricWind: "default",
+    zoom: "11", overlay: "rain", product: "ecmwf", level: "surface",
+    lat, lon, detailLat: lat, detailLon: lon, detail: "true", pressure: "true", message: "true",
+  });
+  return `https://embed.windy.com/embed.html?${p}`;
+}
+
+function focusMap(crag) {
+  const frame = document.querySelector(".mapframe iframe");
+  if (!frame) return;
+  frame.src = windyUrl(crag.lat, crag.lon);
+  const sub = document.querySelector(".mapsec-sub");
+  if (sub) {
+    sub.innerHTML = `Centred on <b>${crag.name}</b> — drag the timeline along the bottom to scrub the last few hours and the week ahead.`;
+  }
+  document.querySelector(".mapsec")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 // Earliest upcoming day (today excluded) where some crag reaches `level`.
 function nextDay(rows, level) {
