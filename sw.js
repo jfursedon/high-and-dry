@@ -27,8 +27,9 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
-  // never touch the weather API — always go straight to the network
+  // never touch the weather API or the Windy embed — straight to the network
   if (url.hostname.endsWith("open-meteo.com")) return;
+  if (url.hostname.endsWith("windy.com")) return;
   if (e.request.method !== "GET") return;
   // network-first: fresh when online, refresh the cache, fall back when offline
   e.respondWith(
