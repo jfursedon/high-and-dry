@@ -11,3 +11,6 @@ dist/
 node_modules/
 .DS_Store
 *.log
+
+# master trace source (large; not served)
+logo-src.svg
