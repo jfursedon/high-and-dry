@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — High &amp; Dry</title>
+  <meta name="description" content="Privacy policy for the High & Dry iOS app. The app collects no personal data." />
+  <style>
+    :root {
+      --bg: #f4f5f2;
+      --card: #ffffff;
+      --ink: #1b2320;
+      --muted: #5c6660;
+      --line: #e2e6df;
+      --accent: #2faa55;
+      --link: #1f7a3d;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10140f;
+        --card: #191f18;
+        --ink: #e8ece6;
+        --muted: #9aa89d;
+        --line: #2a332a;
+        --accent: #2faa55;
+        --link: #6fd48b;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 32px 20px 64px;
+    }
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 28px 8px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    h1 { font-size: 1.6rem; margin: 6px 0 2px; }
+    .eff { color: var(--muted); font-size: 0.9rem; margin: 0 0 20px; }
+    h2 { font-size: 1.05rem; margin: 26px 0 6px; }
+    p, li { color: var(--ink); }
+    .lead { font-size: 1.05rem; }
+    a { color: var(--link); }
+    ul { padding-left: 1.2em; }
+    li { margin: 4px 0; }
+    footer { color: var(--muted); font-size: 0.85rem; margin-top: 28px; padding-bottom: 20px; }
+    hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge"><span class="dot"></span>High &amp; Dry</div>
+    <h1>Privacy Policy</h1>
+    <p class="eff">Effective date: 11 July 2026</p>
+
+    <p class="lead">High &amp; Dry is a free app that shows wet/dry climbing
+    conditions for Southern Sandstone crags. In short: <strong>the app does not
+    collect, store, or share any personal information about you.</strong> There
+    are no accounts, no analytics, no advertising, and no tracking.</p>
+
+    <h2>Information the app handles</h2>
+    <p>High &amp; Dry has no backend of its own and asks you for nothing. To show
+    conditions it fetches weather forecasts from <strong>Open-Meteo</strong>
+    using a fixed set of crag coordinates that are built into the app.
+    <strong>Your own location is never requested, used, or transmitted.</strong></p>
+
+    <h2>Information sent to third parties</h2>
+    <ul>
+      <li><strong>Open-Meteo</strong> — the app requests weather data for the
+      built-in crag coordinates. As with any internet request, Open-Meteo
+      receives standard network information such as your device's IP address.
+      The app sends no personal data or identifiers. See the
+      <a href="https://open-meteo.com/en/terms" rel="noopener" target="_blank">Open-Meteo privacy terms</a>.</li>
+      <li><strong>Windy.com</strong> — when you tap a crag to open the rain-radar
+      map, the app loads Windy's map in an in-app web view. Windy then loads its
+      own content and may receive your IP address and set its own cookies,
+      governed by the
+      <a href="https://account.windy.com/privacy-policy" rel="noopener" target="_blank">Windy privacy policy</a>.</li>
+    </ul>
+    <p>The app does not send your data to any other service, and does not send
+    anything to the developer.</p>
+
+    <h2>Information stored on your device</h2>
+    <p>The app stores a small amount of data locally on your device only:</p>
+    <ul>
+      <li>the most recent wet/dry verdict for each crag, so it can tell when a
+      crag has newly dried out;</li>
+      <li>your notification preference.</li>
+    </ul>
+    <p>This data never leaves your device and is removed when you delete the app.</p>
+
+    <h2>Notifications</h2>
+    <p>If you allow notifications, the app may send you a <strong>local</strong>
+    notification when a crag dries out to "green". These are generated on your
+    device. There is no push server and no message is sent to or from the
+    developer.</p>
+
+    <h2>Tracking, analytics, and advertising</h2>
+    <p>None. The app contains no analytics SDKs, no advertising, and no
+    third-party tracking, and it does not build a profile of you.</p>
+
+    <h2>Children's privacy</h2>
+    <p>The app collects no personal information from anyone, including children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be posted at this address
+    with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:sascha@panoblu.com">sascha@panoblu.com</a></p>
+
+    <hr />
+    <footer>
+      High &amp; Dry for iOS. Based on
+      <a href="https://github.com/jfursedon/high-and-dry" rel="noopener" target="_blank">High &amp; Dry</a>
+      by James Fursedon. Weather by Open-Meteo. Rain radar by Windy.com.
+    </footer>
+  </main>
+</body>
+</html>
