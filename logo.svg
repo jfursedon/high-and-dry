@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="#2a2f29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- rock face -->
+  <path d="M31 6 C 27 20 35 30 35 41 C 35 51 27 60 29 72 C 30 84 27 90 28 97"/>
+  <path d="M23 23 q -2 10 0 20"/>
+  <path d="M18 45 q -2 11 0 22"/>
+  <!-- umbrella canopy -->
+  <path d="M50 40 Q 52 22 72 20 Q 92 22 94 40"/>
+  <path d="M50 40 Q 57 47 61 40 Q 68 47 72 40 Q 79 47 83 40 Q 90 47 94 40"/>
+  <!-- ribs -->
+  <path d="M72 20 L 50 40 M72 20 L 61 40 M72 20 L 72 40 M72 20 L 83 40 M72 20 L 94 40"/>
+  <!-- finial -->
+  <path d="M72 20 L 72 14"/>
+  <!-- shaft -->
+  <path d="M72 24 L 58 57"/>
+  <!-- climber -->
+  <circle cx="51" cy="53" r="5"/>
+  <path d="M50 58 L 44 76"/>
+  <path d="M49 60 Q 40 51 35 41"/>
+  <path d="M51 61 L 58 57"/>
+  <path d="M44 76 L 39 86 L 32 90"/>
+  <path d="M44 76 L 50 88 L 48 96"/>
+  <path d="M40 75 L 48 77"/>
+  <!-- rope -->
+  <path d="M44 77 L 46 97"/>
+</svg>
